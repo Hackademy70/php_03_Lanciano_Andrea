@@ -53,9 +53,6 @@ class SmartPhone extends Shop {
     }
 
 
-    //     - Creare un metodo che mi permetta di applicare una cover posteriore e una pellicola anteriore
-// per ogni smartphone. Una volta applicata, stampare “Ora il posteriore è più protetto!” nel primo caso
-//, “Ora l’ anteriore è più protetto” nel secondo.
 
     public function onCover(){
         if(self::$counter % 2 == 0){
@@ -68,20 +65,66 @@ class SmartPhone extends Shop {
 }
 
 
-$smartphone1 = new Smartphone("Apple", "iPhone Pro 14", "48Mega", 1200);
-$smartphone1->vendita();
-$smartphone1->onCover();
-$smartphone2 = new Smartphone("Samsung", "Galaxy Fold", "20Mega", 1800);
-$smartphone2->vendita();
-$smartphone2->onCover();
-$smartphone3 = new Smartphone("Samsung", "Galaxy S20", "18Mega", 1600);
-$smartphone3->vendita();
-$smartphone3->onCover();
-$smartphone4 = new Smartphone("Apple", "iPhone Pro 12", "12Mega", 1000);
-$smartphone4->vendita();
-$smartphone4->onCover();
+// $smartphone1 = new Smartphone("Apple", "iPhone Pro 14", "48Mega", 1200);
+// $smartphone1->vendita();
+// $smartphone1->onCover();
+// $smartphone2 = new Smartphone("Samsung", "Galaxy Fold", "20Mega", 1800);
+// $smartphone2->vendita();
+// $smartphone2->onCover();
+// $smartphone3 = new Smartphone("Samsung", "Galaxy S20", "18Mega", 1600);
+// $smartphone3->vendita();
+// $smartphone3->onCover();
+// $smartphone4 = new Smartphone("Apple", "iPhone Pro 12", "12Mega", 1000);
+// $smartphone4->vendita();
+// $smartphone4->onCover();
 
 
 
+
+// SECONDO ESERCIZIO
+// - Creare un’astrazione che rappresenti la Flora e una che rappresenti la Fauna.
+// - Per ognuna di queste creare 3 classi a scelta che avranno in comune almeno un metodo (sempre a scelta).
+// Date sfogo alla fantasia!
+
+
+
+abstract class Vita {
+    public $vivo;
+    public $doveVive;
+
+
+    public function __construct($_vivo, $_doveVive){
+        $this->vivo = $_vivo;
+        $this->doveVive = $_doveVive;
+    }
+
+    // abstract public function vendita();
+
+    // abstract public function onCover();
+}
+
+
+class Fauna extends Vita {
+    public $tipo;
+
+    public function __construct($_vivo, $_doveVive, $_tipo){
+        $this->tipo = $_tipo;
+        parent::__construct($_vivo, $_doveVive);
+    }
+}
+
+class Flora extends Vita{
+    public $altitudine;
+
+    public function __construct($_vivo, $_doveVive, $_altitudine){
+        $this->altitudine = $_altitudine;
+        parent::__construct($_vivo, $_doveVive);
+    }
+}
+
+$tigre = new Fauna("si", "giungla", "felino");
+$alga = new Flora("si", "giungla", "mare");
+var_dump($tigre);
+var_dump($alga);
 
 ?>
